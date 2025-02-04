@@ -1,0 +1,7 @@
+Create Table CMLwithOpenXML
+(
+	XMLwithOpenXML_id INT Identity primary key,
+	XMLData XML,
+	LoadedDateTime Datetime
+
+);
