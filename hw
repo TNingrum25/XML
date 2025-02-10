@@ -1,0 +1,4 @@
+SELECT TOP 5 BusinessEntityID, FirstName, LastName  
+FROM Person.Person  
+WHERE FirstName = 'John'  
+FOR XML PATH ('Person'), ROOT ('Persons');
