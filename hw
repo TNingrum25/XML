@@ -2,3 +2,31 @@ SELECT TOP 5 BusinessEntityID, FirstName, LastName
 FROM Person.Person  
 WHERE FirstName = 'John'  
 FOR XML PATH ('Person'), ROOT ('Persons');
+
+
+CREATE TABLE ImportedPeople (
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50)
+);
+
+DECLARE @xmlData XML;
+DECLARE @xmlHandle INT;
+
+-- Load XML File into Variable
+SELECT @xmlData = BulkColumn
+FROM OPENROWSET(BULK 'C:\Path\To\xmlTest.xml', SINGLE_BLOB) AS x;
+
+-- Prepare XML Document
+EXEC sp_xml_preparedocument @xmlHandle OUTPUT, @xmlData;
+
+-- Insert XML Data into Table
+INSERT INTO ImportedPersons (FirstName, LastName)
+SELECT FirstName, LastName
+FROM OPENXML(@xmlHandle, '/Persons/Person', 2)
+WITH (FirstName NVARCHAR(50) 'FirstName', LastName NVARCHAR(50) 'LastName');
+
+-- Remove XML Document from Memory
+EXEC sp_xml_removedocument @xmlHandle;
+
+-- Display Imported Data
+SELECT FirstName, LastName FROM ImportedPersons;
