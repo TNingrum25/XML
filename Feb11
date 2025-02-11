@@ -17,4 +17,4 @@ N'{
 SELECT  
   JSON_VALUE(@json, '$.type') AS type,  
   JSON_VALUE(@json, '$.info.address.town') AS town,  
-  JSON_QUERY(@json, '$.info.tags') AS tags;
+  JSON_QUERY(@json, '$.info.tags') AS tags
