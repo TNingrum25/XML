@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML document contains a list of adopted pets along with their details such as name, category, breed, adoption date, gender, registration, color, and list price. -->
+
 <Pets>
     <Pet PetID="7">
         <Name>Eugene</Name>
