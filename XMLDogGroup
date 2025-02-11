@@ -202,3 +202,7 @@ SELECT
     CAST(REPLACE(T.C.value('ListPrice[1]', 'VARCHAR(20)'), '$', '') AS DECIMAL(10,2)) AS ListPrice
 FROM @xml.nodes('/Pets/Pet') T(C);
 
+
+DECLARE @xml XML;
+SELECT @xml = BulkColumn
+FROM OPENROWSET(BULK 'C:\path\to\your\pets.xml', SINGLE_CLOB) AS x;
