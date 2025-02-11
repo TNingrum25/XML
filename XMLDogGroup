@@ -148,3 +148,18 @@
         <ListPrice>237.90</ListPrice>
     </Pet>
 </Pets>
+
+
+Create the table
+CREATE TABLE Pets (
+    PetID INT PRIMARY KEY,
+    Name NVARCHAR(50),
+    Category NVARCHAR(50),
+    Breed NVARCHAR(50),
+    DateAdopted DATE,
+    Gender NVARCHAR(10),
+    Registered NVARCHAR(50) NULL,
+    Color NVARCHAR(50),
+    ListPrice DECIMAL(10,2)
+);
+
