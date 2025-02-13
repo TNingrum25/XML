@@ -1,20 +1,14 @@
-CREATE TABLE test (
-    LINE_SPECS nvarchar(max)
-);
+Create table test(LINE_SPECS nvarchar(max));
+Insert into test values (N'{
+"lineName":"GHjr",
+"pipeDiameter": "12",
+"pipeLength": "52000",
+"pressure": "15",
+"volume": "107"},
+{"lineName":"Ks3R",
+"pipeDiameter": "9",
+"pipeLength": "40000",
+"pressure": "15",
+"volume": "80"}');
 
-INSERT INTO test VALUES (N'{
-    "lineName": "GHjr",
-    "pipeDiameter": "12",
-    "pipeLength": "52000",
-    "pressure": "15",
-    "volume": "107"
-}');
-INSERT INTO test VALUES (N'{
-    "lineName": "Ks3R",
-    "pipeDiameter": "9",
-    "pipeLength": "40000",
-    "pressure": "15",
-    "volume": "80"
-}');
-
-SELECT * FROM test;
+Select * from test;
